@@ -10,6 +10,17 @@ import Foundation
 import UIKit
 class Canvas: UIView {
     
+    // public function
+   @objc func undo() {
+        _ = lines.popLast()
+        setNeedsDisplay()
+    }
+    
+   @objc func clear() {
+        lines.removeAll()
+        setNeedsDisplay()
+    }
+    
     override func draw(_ rect: CGRect) {
         // custom drawing
         super.draw(rect)
