@@ -41,6 +41,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         canvas.backgroundColor = .white
+        setupStackLayout()
+    }
+    
+    fileprivate func setupStackLayout() {
         let stackView = UIStackView(arrangedSubviews: [undoButton, clearButton])
         stackView.distribution = .fillEqually
         view.addSubview(stackView)
