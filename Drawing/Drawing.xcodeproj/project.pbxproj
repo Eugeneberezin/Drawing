@@ -14,6 +14,7 @@
 		052DC50723A07618004B27BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052DC50623A07618004B27BC /* Assets.xcassets */; };
 		052DC50A23A07618004B27BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 052DC50823A07618004B27BC /* LaunchScreen.storyboard */; };
 		052DC51323A082EB004B27BC /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052DC51223A082EB004B27BC /* Canvas.swift */; };
+		0536280223A462EE00CC4B94 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0536280123A462EE00CC4B94 /* Line.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		052DC50923A07618004B27BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		052DC50B23A07618004B27BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		052DC51223A082EB004B27BC /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		0536280123A462EE00CC4B94 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,11 @@
 		052DC4FC23A07616004B27BC /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
+				0536280323A463E500CC4B94 /* Controller */,
+				0536280023A462CF00CC4B94 /* Model */,
 				052DC51123A082CB004B27BC /* Views */,
 				052DC4FD23A07616004B27BC /* AppDelegate.swift */,
 				052DC4FF23A07616004B27BC /* SceneDelegate.swift */,
-				052DC50123A07616004B27BC /* ViewController.swift */,
 				052DC50323A07616004B27BC /* Main.storyboard */,
 				052DC50623A07618004B27BC /* Assets.xcassets */,
 				052DC50823A07618004B27BC /* LaunchScreen.storyboard */,
@@ -76,6 +79,22 @@
 				052DC51223A082EB004B27BC /* Canvas.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0536280023A462CF00CC4B94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0536280123A462EE00CC4B94 /* Line.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0536280323A463E500CC4B94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				052DC50123A07616004B27BC /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +172,7 @@
 				052DC4FE23A07616004B27BC /* AppDelegate.swift in Sources */,
 				052DC50023A07616004B27BC /* SceneDelegate.swift in Sources */,
 				052DC51323A082EB004B27BC /* Canvas.swift in Sources */,
+				0536280223A462EE00CC4B94 /* Line.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

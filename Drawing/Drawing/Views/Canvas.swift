@@ -11,6 +11,10 @@ import UIKit
 class Canvas: UIView {
     
     // public function
+    fileprivate var strokeColor = UIColor.black
+    fileprivate var strokeWidth: Float = 1
+    
+    
    @objc func undo() {
         _ = lines.popLast()
         setNeedsDisplay()
@@ -21,35 +25,45 @@ class Canvas: UIView {
         setNeedsDisplay()
     }
     
+    func setStrokeColor(color: UIColor) {
+        self.strokeColor = color
+    }
+    
+    func setStrokeWidth(width: Float) {
+        self.strokeWidth = width
+    }
+    
     override func draw(_ rect: CGRect) {
         // custom drawing
         super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
-        context.setStrokeColor(UIColor.red.cgColor)
-        context.setLineWidth(10)
-        context.setLineCap(.butt)
+        
         
         lines.forEach { (line) in
-            for (i, p) in line.enumerated() {
+            context.setStrokeColor(line.color.cgColor)
+            context.setLineWidth(CGFloat(line.strokeWidth))
+            context.setLineCap(.round)
+            for (i, p) in line.points.enumerated() {
                 if i == 0 {
                     context.move(to: p)
                 } else {
                     context.addLine(to: p)
                 }
             }
+            context.strokePath()
         }
         
-        context.strokePath()
+        
         
     }
     
     
-    var lines = [[CGPoint]]()
+    var lines = [Line]()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([CGPoint]())
+        lines.append(Line.init(strokeWidth: strokeWidth, color: strokeColor, points: []))
     }
     
     // track the finger as we move across screen
@@ -58,7 +72,7 @@ class Canvas: UIView {
 
         
         guard var lastLine = lines.popLast() else { return }
-        lastLine.append(point)
+        lastLine.points.append(point)
         lines.append(lastLine)
         
 
